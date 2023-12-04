@@ -1,3 +1,46 @@
+# Introduction
+
+# Data
+
+To predict the electron number density, my model uses the satellite location and the time history of the SYM-H index as the input features. 
+
+The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. IMAGE OF THE SATELLITE TRAJECTORY COLORED BY DENSITY
+
+The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. 
+
+Prior to any data cleaning, I reduced the density data to 5 min averages so that the time resolution matches that of the SYM-H data.
+
+## Data Cleaning
+
+Talk about filtering out data points based on L and density.
+
+# Modeling
+
+Talk about using validation data, etc.
+Present results on the optimization of the number of layers/neurons.
+
+# Results
+
+Plot for observed vs predicted, RMSE. 
+
+Plots for the out of sample case.
+
+# Discussion
+
+Talk about how to interpret RMSE and r squared errors.
+Describe how the density distribution is changing, and what the SYM-H is doing at corresponding times
+
+# Conclusion
+
+Summarize the project.
+Potential improvements to the model
+Next steps after building a perfect model
+How the technique is general and can be applied to other magnetospheric quantities, or any quantities in scientific research as long as a good feature set can be built.
+
+# References
+
+Cite Jacob's paper
+
 **Hi class, welcome to the AOS C111/204 final project!** <img align="right" width="220" height="220" src="/assets/IMG/template_logo.png">
 
 For this project, you will be applying your skills to train a machine learning model using real-world data, then publishing a report on your own website.
