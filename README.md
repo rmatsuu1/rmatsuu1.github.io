@@ -1,4 +1,4 @@
-
+This is my report on my project for the Machine Learning for Physical Sciences course.
 
 # Introduction
 
@@ -37,7 +37,11 @@ To evaluate the performance of the model, I used 15% of the dataset as a test se
 
 In the training process, the model iterated through the entire training set for multiple epochs while adjusting its weight matrices to minimize the RMSE. At the end of epoch, the model was tested on the validation set, and I continued the training process until the RMSE on the validation set stopped improving for 10 consecutive epochs. At the end of the training, the weight matrices that led to the best performance were recovered to avoid overfitting.
 
-Present results on the optimization of the number of layers/neurons.
+To optimize my model, I explored how the number of hidden layers and the number of neurons in each layer affect the model performance. I used either 1 or 2 hidden layers and varied the N1 and N2, number of neurons in the first layer and second layer, respectively (N2 = 0 if only one hidden layer is used). I tested different combinations of N1 and N2 through grid search and recorded the RMSE obtained with each combination. Below is a 3D surface showing the model performance, and the vertical axis is the RMSE.
+
+<img align="center" width="350" height="300" src="/assets/IMG/hyperparameter_tuning.png">
+
+WRITE A SENTENCE OR TWO ABOUT THE TUNING
 
 # Results
 
