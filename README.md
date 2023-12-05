@@ -59,7 +59,8 @@ In addition to evaluating the model performance on the test set, I selected one 
 
 2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side.
 
-IMAGE HERE
+<img align="center" width="700" height="200" src="/assets/IMG/density_distribution.png">
+<img align="center" width="500" height="50" src="/assets/IMG/colorbar.png">
 
 # Discussion
 
