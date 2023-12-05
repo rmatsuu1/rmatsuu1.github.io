@@ -9,7 +9,8 @@ Talk about stuff
 To predict the electron number density, my model uses the satellite location and the time history of the SYM-H index as the input features. 
 
 The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. 
-<img align="center" width="220" height="220" src="/assets/IMG/satellite_trajectory.png">
+
+<img align="center" width="500" height="220" src="/assets/IMG/satellite_trajectory.png">
 
 The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. 
 
