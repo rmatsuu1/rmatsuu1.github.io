@@ -37,6 +37,8 @@ To evaluate the performance of the model, I used 15% of the dataset as a test se
 
 In the training process, the model iterated through the entire training set for multiple epochs while adjusting its weight matrices to minimize the RMSE. At the end of epoch, the model was tested on the validation set, and I continued the training process until the RMSE on the validation set stopped improving for 10 consecutive epochs. At the end of the training, the weight matrices that led to the best performance were recovered to avoid overfitting.
 
+## Hyperparameter Tuning
+
 To optimize my model, I explored how the number of hidden layers and the number of neurons in each layer affect the model performance. I used either 1 or 2 hidden layers and varied the N1 and N2, number of neurons in the first layer and second layer, respectively (N2 = 0 if only one hidden layer is used). I tested different combinations of N1 and N2 through grid search and recorded the RMSE obtained with each combination. Below is a 3D surface showing the model performance, and the vertical axis is the RMSE.
 
 <img align="center" width="350" height="300" src="/assets/IMG/hyperparameter_tuning.png">
@@ -45,9 +47,19 @@ WRITE A SENTENCE OR TWO ABOUT THE TUNING
 
 # Results
 
-Plot for observed vs predicted, RMSE. 
+<img align="center" width="700" height="300" src="/assets/IMG/model_performance.png">
 
-Plots for the out of sample case.
+The log_10 of the observed density is plotted against the log_10 of the predicted density above for the test set (left) and the training and validation sets combined (right). The solid line is the line of best fit, and the dashed line is where predicted = observed. The equation of the line of best fit, Pearson correlation coefficient, and the RMSE are listed for both sets below.
+
+<img align="center" width="300" height="150" src="/assets/IMG/test_performance.png"><img align="center" width="300" height="150" src="/assets/IMG/training_performance.png">
+
+In addition to evaluating the model performance on the test set, I selected one storm event (where SYM-H dropped to ~-100nT) and used my model to predict the distribution of electrons over the course of the event. This is important because the purpose of this model is to predict the spatiotemporal density variation of the density during geomagnetic storms. The selected event occurred on 8 March 2008, which is not within the 2012-2019 range of the dataset the model was trained on. Figure below is the change in the SYM-H index throughout the event.
+
+<img align="center" width="350" height="300" src="/assets/IMG/sym_plot.png">
+
+2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side.
+
+IMAGE HERE
 
 # Discussion
 
