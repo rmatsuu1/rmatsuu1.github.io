@@ -8,7 +8,8 @@ Talk about stuff
 
 To predict the electron number density, my model uses the satellite location and the time history of the SYM-H index as the input features. 
 
-The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. IMAGE OF THE SATELLITE TRAJECTORY COLORED BY DENSITY
+The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. 
+<img align="center" width="220" height="220" src="/assets/IMG/satellite_trajectory.png">
 
 The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. 
 
@@ -16,11 +17,25 @@ Prior to any data cleaning, I reduced the density data to 5 min averages so that
 
 ## Data Cleaning
 
-Talk about filtering out data points based on L and density.
+Data points that meet at least one of the following criteria were removed from the dataset.
+1. L > 10
+2. Observed density < 0.01 cm^-3
+
+For this project, I set the region of interest to be L < 10. Therefore, density measurements taken farther than L = 10 are removed. The filtering criterion based on the observed density ensures that points with negative, zero, or extremely low densities are removed (for instance, the original dataset contained many data points with extremely low densities at lower L-shells which is not consistent with our understanding of the system) This exact filtering criterion was also used by Bortnik et al. (2016). 
 
 # Modeling
 
-Talk about using validation data, etc.
+As a model to predict the electron density, I chose to use a feed forward neural network. The input layer takes in the following features as the input:
+- 5 hour history of the SYM-H index (at 5 min cadence, resulting in 60 features)
+- L
+- cos(MLT angle)
+- sin(MLT angle)
+Number of hidden layers and number of neurons in each of the hidden layers are important hyperparameters of the model. The result of hyperparameter tuning is presented below. I used the RELU activation function for all of the neurons except for the output layer for which I used a linear activation function.
+
+To evaluate the performance of the model, I used 15% of the dataset as a test set. I further split the remaining dataset into validation set and training set (15% and 70% of the overall dataset, respectively). 
+
+In the training process, the model iterated through the entire training set for multiple epochs while adjusting its weight matrices to minimize the RMSE. At the end of epoch, the model was tested on the validation set, and I continued the training process until the RMSE on the validation set stopped improving for 10 consecutive epochs. At the end of the training, the weight matrices that led to the best performance were recovered to avoid overfitting.
+
 Present results on the optimization of the number of layers/neurons.
 
 # Results
