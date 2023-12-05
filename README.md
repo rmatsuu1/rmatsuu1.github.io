@@ -47,15 +47,15 @@ WRITE A SENTENCE OR TWO ABOUT THE TUNING
 
 # Results
 
-<img align="center" width="700" height="300" src="/assets/IMG/model_performance.png">
+<img align="center" width="700" height="350" src="/assets/IMG/model_performance.png">
 
 The log_10 of the observed density is plotted against the log_10 of the predicted density above for the test set (left) and the training and validation sets combined (right). The solid line is the line of best fit, and the dashed line is where predicted = observed. The equation of the line of best fit, Pearson correlation coefficient, and the RMSE are listed for both sets below.
 
-<img align="center" width="300" height="150" src="/assets/IMG/test_performance.png"><img align="center" width="300" height="150" src="/assets/IMG/training_performance.png">
+<img align="center" width="250" height="50" src="/assets/IMG/test_performance.png"><img align="center" width="250" height="50" src="/assets/IMG/training_performance.png">
 
 In addition to evaluating the model performance on the test set, I selected one storm event (where SYM-H dropped to ~-100nT) and used my model to predict the distribution of electrons over the course of the event. This is important because the purpose of this model is to predict the spatiotemporal density variation of the density during geomagnetic storms. The selected event occurred on 8 March 2008, which is not within the 2012-2019 range of the dataset the model was trained on. Figure below is the change in the SYM-H index throughout the event.
 
-<img align="center" width="350" height="300" src="/assets/IMG/sym_plot.png">
+<img align="center" width="350" height="300" src="/assets/IMG/symh_plot.png">
 
 2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side.
 
