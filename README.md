@@ -1,6 +1,6 @@
-# Introduction
+## Introduction
 
-# Data
+## Data
 
 To predict the electron number density, my model uses the satellite location and the time history of the SYM-H index as the input features. 
 
@@ -10,34 +10,34 @@ The time history of the SYM-H index was obtained through the [OMNI database](htt
 
 Prior to any data cleaning, I reduced the density data to 5 min averages so that the time resolution matches that of the SYM-H data.
 
-## Data Cleaning
+### Data Cleaning
 
 Talk about filtering out data points based on L and density.
 
-# Modeling
+## Modeling
 
 Talk about using validation data, etc.
 Present results on the optimization of the number of layers/neurons.
 
-# Results
+## Results
 
 Plot for observed vs predicted, RMSE. 
 
 Plots for the out of sample case.
 
-# Discussion
+## Discussion
 
 Talk about how to interpret RMSE and r squared errors.
 Describe how the density distribution is changing, and what the SYM-H is doing at corresponding times
 
-# Conclusion
+## Conclusion
 
 Summarize the project.
 Potential improvements to the model
 Next steps after building a perfect model
 How the technique is general and can be applied to other magnetospheric quantities, or any quantities in scientific research as long as a good feature set can be built.
 
-# References
+## References
 
 Cite Jacob's paper
 
