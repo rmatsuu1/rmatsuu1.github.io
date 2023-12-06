@@ -87,7 +87,9 @@ Describe how the density distribution is changing, and what the SYM-H is doing a
 
 In this project, I built a feed forward neural network model to model the electron density in the near-Earth space. My model predicts the electron density at any point in space and time using the satellite location and the 5-hour time history of the SYM-H index as the input features. The model includes an input layer, an output layer, and 2 hidden layers in between them with N1 and N2 neurons each. The layer sizes were optimized by testing various layer sizes in the hyperparameter tuning process. Testing the model on the test set resulted in an RMSE of RMSE and an r^2 error of R_SQUARED. Finally, I reconstructed a density map during a storm event in March 2008 using my model, and result shows RESULT. 
 
-My model can most likely be improved in While I optimized the model hyperparameters (number of neurons in the hidden layers), my project did not include any attempt to optimize the feature set. For instance, 
+My model can most likely be improved in several ways if more time was availble for the project. While I optimized the model hyperparameters (number of neurons in the hidden layers), my project did not include any attempt to optimize the feature set. For instance, the length of the SYM-H time history was fixed at 5 hours for this project. However, including a longer history may potentially capture additional processes that indicate later changes in electron density, in which case the model performance may improve. Therefore the length of the time history can be optimized in the same way the hidden layer sizes were optimized. Furthermore, the model performance may improve by adding time histories of different magnetospheric indices to the feature set. 
+
+This project 
 Potential improvements to the model
 Next steps after building a perfect model
 How the technique is general and can be applied to other magnetospheric quantities, or any quantities in scientific research as long as a good feature set can be built.
