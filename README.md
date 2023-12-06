@@ -85,7 +85,9 @@ Describe how the density distribution is changing, and what the SYM-H is doing a
 
 # Conclusion
 
-Summarize the project.
+In this project, I built a feed forward neural network model to model the electron density in the near-Earth space. My model predicts the electron density at any point in space and time using the satellite location and the 5-hour time history of the SYM-H index as the input features. The model includes an input layer, an output layer, and 2 hidden layers in between them with N1 and N2 neurons each. The layer sizes were optimized by testing various layer sizes in the hyperparameter tuning process. Testing the model on the test set resulted in an RMSE of RMSE and an r^2 error of R_SQUARED. Finally, I reconstructed a density map during a storm event in March 2008 using my model, and result shows RESULT. 
+
+My model can most likely be improved in While I optimized the model hyperparameters (number of neurons in the hidden layers), my project did not include any attempt to optimize the feature set. For instance, 
 Potential improvements to the model
 Next steps after building a perfect model
 How the technique is general and can be applied to other magnetospheric quantities, or any quantities in scientific research as long as a good feature set can be built.
