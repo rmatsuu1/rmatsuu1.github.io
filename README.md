@@ -92,7 +92,7 @@ How the technique is general and can be applied to other magnetospheric quantiti
 
 # References
 
-[1] Bortnik, Jacob, et al. "A unified approach to inner magnetospheric state prediction." Journal of Geophysical Research: Space Physics 121.3 (2016): 2423-2430.
+\[1\] Bortnik, Jacob, et al. "A unified approach to inner magnetospheric state prediction." Journal of Geophysical Research: Space Physics 121.3 (2016): 2423-2430.
 
 **Hi class, welcome to the AOS C111/204 final project!** <img align="right" width="220" height="220" src="/assets/IMG/template_logo.png">
 
