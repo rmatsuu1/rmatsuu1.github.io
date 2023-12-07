@@ -47,7 +47,7 @@ To optimize my model, I explored how the number of hidden layers and the number 
     <img align="center" width="350" height="300" src="/assets/IMG/hyperparameter_tuning.png">
 </p>
 
-WRITE A SENTENCE OR TWO ABOUT THE TUNING
+With one hidden layer, adding neurons to the layer lowered the RMSE steadily until at N = 80 it started to increase. With two hidden layers, adding more neurons to both layers generally improved the RMSE just like with one layer. However, the RMSE dropped at a slower rate as I added more neurons and the performance eventually stopped improving around when N1 and N2 were 70. As a result my final model contains two hidden layers, both with 70 neurons.
 
 # Results
 
@@ -66,7 +66,7 @@ The log_10 of the observed density is plotted against the log_10 of the predicte
 In addition to evaluating the model performance on the test set, I selected one storm event (where SYM-H dropped to ~-100nT) and used my model to predict the distribution of electrons over the course of the event. This is important because the purpose of this model is to predict the spatiotemporal density variation of the density during geomagnetic storms. The selected event occurred on 8 March 2008, which is not within the 2012-2019 range of the dataset the model was trained on. Figure below is the change in the SYM-H index throughout the event.
 
 <p align="center" width="100%">
-    <img align="center" width="350" height="300" src="/assets/IMG/symh_plot.png">
+    <img align="center" width="360" height="300" src="/assets/IMG/symh_plot.png">
 </p>
 
 2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side.
@@ -85,7 +85,7 @@ Describe how the density distribution is changing, and what the SYM-H is doing a
 
 # Conclusion
 
-In this project, I built a feed forward neural network model to reconstruct the electron density in the near-Earth space. My model predicts the electron density at any point in space and time using the satellite location and the 5-hour time history of the SYM-H index as the input features. The model includes an input layer, an output layer, and 2 hidden layers in between them with N1 and N2 neurons each. The model parameters were optimized by testing various layer sizes in the hyperparameter tuning process. Testing the model resulted in an RMSE of RMSE and an r^2 error of R_SQUARED. Finally, I constructed an electron density map during a storm event in March 2008 using my model, and result shows RESULT. 
+In this project, I built a feed forward neural network model to reconstruct the electron density in the near-Earth space. My model predicts the electron density at any point in space and time using the satellite location and the 5-hour time history of the SYM-H index as the input features. The model includes an input layer, an output layer, and 2 hidden layers in between them with 70 neurons each. The model parameters were optimized by testing various layer sizes in the hyperparameter tuning process. Testing the model resulted in an RMSE of RMSE and an r^2 error of R_SQUARED. Finally, I constructed an electron density map during a storm event in March 2008 using my model, and result shows RESULT. 
 
 My model can most likely be improved in several ways if more time was availble for the project. For example, while I optimized the model hyperparameters (number of neurons in the hidden layers), I did not attempt to optimize the feature set. The length of the SYM-H time history was fixed at 5 hours, but including a longer history may potentially capture additional processes that indicate later changes in electron density, in which case the model performance may improve. Therefore the length of the time history can be optimized in the same way the hidden layer sizes were optimized. Furthermore, the model performance could improve by adding time histories of other magnetospheric indices that may be relevant to the feature set. 
 
