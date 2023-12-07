@@ -52,7 +52,7 @@ WRITE A SENTENCE OR TWO ABOUT THE TUNING
 # Results
 
 <p align="center" width="100%">
-    <img align="center" width="700" height="350" src="/assets/IMG/model_performance.png">
+    <img align="center" width="700" height="350" src="/assets/IMG/model_performance.png"> 
 </p>
 
 The log_10 of the observed density is plotted against the log_10 of the predicted density above for the test set (left) and the training and validation sets combined (right). The solid line is the line of best fit, and the dashed line is where predicted = observed. The equation of the line of best fit, Pearson correlation coefficient, and the RMSE are listed for both sets below.
