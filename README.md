@@ -10,19 +10,19 @@ In this project, I built a feed forward neural network model to reconstruct the 
 
 To predict the electron number density, my model uses the satellite location and the time history of the SYM-H index as the input features. 
 
-The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. 
+The dataset containing the observed electron density and the location of measurement was obtained through my research group. The data was collected by the Van Allen Probes (RBSP-A and RBSP-B) and covers the time period of 16 September 2012 to 12 October 2019, providing density measurements at 1 min cadence. The measurement location is defined by the L-shell and the magnetic local time (MLT), both available for every data point. The plot below shows the trajectories of the two spacecrafts between 16 September 2012 and 20 September 2012, colored by the density measured at that location. This shows that in general the density is much higher at lower L.
 
 <p align="center" width="100%">
     <img align="center" width="500" height="220" src="/assets/IMG/satellite_trajectory.png">
 </p>
 
-The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. Many other magnetospheric indices and solar wind parameters are also available on the OMNI database and can be downloaded if I decide to include additional features to my model as an extension to this project.
+The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H index reflects the change in the Earth's magnetic field strength from its normal quiet time value and is commonly used to describe geomagnetic storms in space physics research. SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. Many other magnetospheric indices and solar wind parameters are also available on the OMNI database and can be downloaded if I decide to include additional features to my model as an extension to this project.
 
 Prior to any data cleaning, I reduced the density data to 5 min averages so that the time resolution matches that of the SYM-H data.
 
 ## Data Cleaning
 
-Data points that meet at least one of the following criteria were removed from the dataset.
+Datasets often contain data points that do not help with making accurate predictions. For example, there can be measurement errors resulting in data points that are not consistent with the physical understanding of the system. To maximize the performance of my model, I identified and filtered such points. Data points that meet at least one of the following criteria were removed from the dataset.
 1. L > 10
 2. Observed density < 0.01 cm^-3
 
@@ -36,7 +36,7 @@ As a model to predict the electron density, I chose to use a feed forward neural
 - cos(MLT angle)
 - sin(MLT angle)
 
-Number of hidden layers and the number of neurons in each of the hidden layers are important hyperparameters of the model. The result of hyperparameter tuning is presented below. I used the RELU activation function for all of the neurons except for the output layer for which I used a linear activation function.
+Number of hidden layers and the number of neurons in each of the hidden layers are important hyperparameters of the model and have to be optimized for the particular dataset. The result of hyperparameter tuning is presented below. I used the RELU activation function for all of the neurons except for the output layer for which I used a linear activation function.
 
 To evaluate the performance of the model, I used 15% of the dataset as a test set. I further split the remaining dataset into a validation set and a training set (15% and 70% of the overall dataset, respectively). 
 
@@ -66,15 +66,15 @@ The log_10 of the observed density is plotted against the log_10 of the predicte
     <img align="center" width="250" height="40" src="/assets/IMG/training_performance.png">
 </p>
 
-Testing the model on the test set resulted in an RMSE error of 0.396 and a correlation of 0.897. While the model performs slightly better on the training data, the margin is extremely small and this shows that the model is not overfit. Even though my model performs somewhat well on the test set, I believe that it can certainly be improved (in fact Bortnik et al. achieved a lower RMSE and a higher correlation) and potential changes to my model for improvement are discussed in the conclusion.
+Testing the model on the test set resulted in an RMSE of 0.396 and a correlation of 0.897. While the model performs slightly better on the training data (RMSE of 0.394 and correlation of 0.899), the margin is extremely small and this shows that the model is not overfit. Even though my model performs somewhat well on the test set, I believe that it can certainly be improved (in fact Bortnik et al. achieved a lower RMSE and a higher correlation) and potential changes to my model for improvement are discussed in the conclusion.
 
-In addition to evaluating the model performance on the test set, I selected one storm event (where SYM-H dropped to ~-100nT) and used my model to predict the distribution of electrons over the course of the event. This is important because the purpose of this model is to predict the spatiotemporal density variation of the density during geomagnetic storms. The selected event occurred on 8 March 2008, which is not within the 2012-2019 range of the dataset the model was trained on. Figure below is the change in the SYM-H index throughout the event.
+In addition to evaluating the model performance on the test set, I selected one storm event (where SYM-H dropped to ~-100nT) and used my model to predict the distribution of electrons over the course of the event. This is important because the purpose of this model is to predict the spatiotemporal density variation of the density during geomagnetic storms. The selected event occurred on 8 March 2008, which is not within the 2012-2019 range of the dataset the model was trained on. In other words, this event period is completely out sample. Figure below is the change in the SYM-H index throughout the event.
 
 <p align="center" width="100%">
     <img align="center" width="360" height="300" src="/assets/IMG/symh_plot.png">
 </p>
 
-2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side (MLT is labeled at 0, 6, 12, and 18). Contours at a density of 50 electrons per cubic centimeter is plotted as black dashed lines for each map to show how the size of the "high density" region changes over time. The result shows that the density is high in a large volume of space at the start of the event, which shrinks over time. Additionally, the region of high density is extended on the dayside (particularly at 5 am and 10 am on March 9th). Both of these features were also predicted by Bortnik et al. (2016) and is also consistent with the theoretical understanding of the plasmasphere.
+2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side (MLT is labeled at 0, 6, 12, and 18). A contour at the density of 50 electrons per cubic centimeter is plotted as a black dashed line for each map to show how the size of the "high density" region changes over time. The result shows that the density is high in a large volume of space at the start of the event, which shrinks as the storm starts. Additionally, the region of high density is extended on the dayside (particularly at 5 am and 10 am on March 9th). Both of these features were also predicted by Bortnik et al. (2016) and is also consistent with the theoretical understanding of the plasmasphere.
 
 <p align="center" width="100%">
     <img align="center" width="950" height="165" src="/assets/IMG/density_distribution.png">
