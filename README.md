@@ -98,4 +98,5 @@ Lastly, the techniques used for this project are applicable to research in any s
 # References
 
 \[1\] Bortnik, Jacob, et al. "A unified approach to inner magnetospheric state prediction." Journal of Geophysical Research: Space Physics 121.3 (2016): 2423-2430.
+
 \[2\]Ma, Donglai, et al. "Opening the black box of the radiation belt machine learning model." Space Weather 21.4 (2023): e2022SW003339.
