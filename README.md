@@ -16,7 +16,7 @@ The dataset containing the observed electron density and the location of measure
     <img align="center" width="500" height="220" src="/assets/IMG/satellite_trajectory.png">
 </p>
 
-The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. 
+The time history of the SYM-H index was obtained through the [OMNI database](https://omniweb.gsfc.nasa.gov/form/omni_min_def.html). SYM-H data is available at 5 min cadence without any data gaps, which is convenient for this project because I don't lose any data points from unavailability of SYM-H data. Many other magnetospheric indices and solar wind parameters are also available on the OMNI database and can be downloaded if I decide to include additional features to my model as an extension to this project.
 
 Prior to any data cleaning, I reduced the density data to 5 min averages so that the time resolution matches that of the SYM-H data.
 
@@ -26,7 +26,7 @@ Data points that meet at least one of the following criteria were removed from t
 1. L > 10
 2. Observed density < 0.01 cm^-3
 
-For this project, I set the region of interest to be L < 10. Therefore, density measurements taken farther than L = 10 are removed. The filtering criterion based on the observed density ensures that points with negative, zero, or extremely low densities are removed (for instance, the original dataset contained many data points with extremely low densities at lower L-shells which is not consistent with our understanding of the system) This exact filtering criterion was also used by Bortnik et al. (2016). 
+For this project, I set the region of interest to be L < 10. Therefore, density measurements taken farther than L = 10 are removed. The filtering criterion based on the observed density ensures that points with negative, zero, or extremely low densities are removed (for instance, the original dataset contained many data points with extremely low densities at lower L-shells which is not consistent with our understanding of the system). This exact filtering criterion was also used by Bortnik et al. (2016). 
 
 # Modeling
 
@@ -74,7 +74,7 @@ In addition to evaluating the model performance on the test set, I selected one 
     <img align="center" width="360" height="300" src="/assets/IMG/symh_plot.png">
 </p>
 
-2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side. The result shows that the density is high in a large volume of space at the start of the event, which shrinks over time. Additionally, the region of high density is extended on the dayside (particularly at 5 am and 10 am on March 9th). Both of these features were also predicted by Bortnik et al. (2016) and is also consistent with the theoretical understanding of the plasmasphere.
+2D density maps at various times are presented below. Note that for every plot, the left side of the plot is the day side and the right side is the night side (MLT is labeled at 0, 6, 12, and 18). Contours at a density of 50 electrons per cubic centimeter is plotted as black dashed lines for each map to show how the size of the "high density" region changes over time. The result shows that the density is high in a large volume of space at the start of the event, which shrinks over time. Additionally, the region of high density is extended on the dayside (particularly at 5 am and 10 am on March 9th). Both of these features were also predicted by Bortnik et al. (2016) and is also consistent with the theoretical understanding of the plasmasphere.
 
 <p align="center" width="100%">
     <img align="center" width="950" height="165" src="/assets/IMG/density_distribution.png">
